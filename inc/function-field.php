@@ -341,3 +341,85 @@ function create_catalogue_post_type() {
 // Hook into the 'init' action
 add_action('init', 'create_catalogue_post_type');
 
+
+// Register Custom Post Type for Project
+function create_project_post_type() {
+    $labels = array(
+        'name'                  => _x('Dự án', 'Post Type General Name', 'text_domain'),
+        'singular_name'         => _x('Dự án', 'Post Type Singular Name', 'text_domain'),
+        'menu_name'             => __('Dự án', 'text_domain'),
+        'name_admin_bar'        => __('Dự án', 'text_domain'),
+        'archives'              => __('Project Archives', 'text_domain'),
+        'attributes'            => __('Project Attributes', 'text_domain'),
+        'parent_item_colon'     => __('Parent Project:', 'text_domain'),
+        'all_items'             => __('All Projects', 'text_domain'),
+        'add_new_item'          => __('Add New Project', 'text_domain'),
+        'add_new'               => __('Add New', 'text_domain'),
+        'new_item'              => __('New Project', 'text_domain'),
+        'edit_item'             => __('Edit Project', 'text_domain'),
+        'update_item'           => __('Update Project', 'text_domain'),
+        'view_item'             => __('View Project', 'text_domain'),
+        'view_items'            => __('View Projects', 'text_domain'),
+        'search_items'          => __('Search Project', 'text_domain'),
+        'not_found'             => __('Not found', 'text_domain'),
+        'not_found_in_trash'    => __('Not found in Trash', 'text_domain'),
+    );
+
+    $args = array(
+        'label'                 => __('Project', 'text_domain'),
+        'description'           => __('Post Type for Project', 'text_domain'),
+        'labels'                => $labels,
+        'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'              => true,
+        'show_in_menu'         => true,
+        'menu_position'         => 20,
+		'menu_icon'            => 'dashicons-building',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+
+    register_post_type('project', $args);
+}
+
+// Hook into the 'init' action
+add_action('init', 'create_project_post_type');
+
+
+// Register Custom Taxonomy for Project
+function create_project_taxonomy() {
+    $labels = array(
+        'name'              => _x('Categories', 'taxonomy general name', 'text_domain'),
+        'singular_name'     => _x('Category', 'taxonomy singular name', 'text_domain'),
+        'search_items'      => __('Search Project Categories', 'text_domain'),
+        'all_items'         => __('All Project Categories', 'text_domain'),
+        'parent_item'       => __('Parent Project Category', 'text_domain'),
+        'parent_item_colon' => __('Parent Project Category:', 'text_domain'),
+        'edit_item'         => __('Edit Project Category', 'text_domain'),
+        'update_item'       => __('Update Project Category', 'text_domain'),
+        'add_new_item'      => __('Add New Project Category', 'text_domain'),
+        'new_item_name'     => __('New Project Category Name', 'text_domain'),
+        'menu_name'         => __('Category', 'text_domain'),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'project-category'),
+    );
+
+    register_taxonomy('project_category', array('project'), $args);
+}
+
+// Hook into the 'init' action
+add_action('init', 'create_project_taxonomy');
+

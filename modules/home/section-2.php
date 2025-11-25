@@ -1,66 +1,89 @@
 <?php
 
-if (have_rows('home_section', get_the_ID())) {
+$sub_title = get_sub_field('sub_title');
 
-    while (have_rows('home_section', get_the_ID())) {
+$title = get_sub_field('title');
 
-        the_row();
+$description = get_sub_field('description');
 
-        if (get_row_layout() == 'introduction_section') {
+$button = get_sub_field('button');
 
-            $introduction_background = get_sub_field('introduction_background');
-
-            $introduction_title = get_sub_field('introduction_title');
-
-            $introduction_subtitle = get_sub_field('introduction_subtitle');
-
-            $introduction_description = get_sub_field('introduction_description');
-
-            $introduction_link = get_sub_field('introduction_link');
-
-            $introduction_celebratingimage = get_sub_field('introduction_celebratingimage');
-
-        }
-
-    }
-
-}
+$statistics = get_sub_field('statistics');
 
 ?>
 
-
-
-<section class="home-2 pt-20 rem:pb-[333px]" setBackground="<?php echo !empty($introduction_background['url']) ? $introduction_background['url'] : '#'; ?>">
+<section class="home-2 section-py bg-Utility-50">
 
     <div class="container">
 
-        <div class="home-2-main flex xl:rem:gap-[224px] md:gap-20 gap-base">
+        <div class="wrap-heading mx-auto rem:max-w-[1022px] w-full text-center">
 
-            <div class="col-left xl:rem:w-[840px] md:w-7/12">
+            <?php if ($sub_title) : ?>
 
-                <h4 class="text-xl tracking-[-0.4px] font-bold text-Primary-1 mb-4"><?php echo !empty($introduction_title) ? $introduction_title : ''; ?></h4>
+            <div class="sub-title heading-5 font-bold text-Utility-700 mb-3" data-aos="fade-up" data-aos-delay="200"
+                data-aos-duration="1200"><?php echo esc_html($sub_title); ?></div>
 
-                <h3 class="title-40 !font-normal tracking-[-1.6px] mb-base"><?php echo !empty($introduction_subtitle) ? $introduction_subtitle : ''; ?></h3>
+            <?php endif; ?>
 
-                <div class="format-content text-lg font-normal text-Neutral-950">
+            <?php if ($title) : ?>
 
-                    <?php echo !empty($introduction_description) ? $introduction_description : ''; ?>
+            <h2 class="heading-banner font-black text-Primary-2 mb-base" data-aos="fade-up" data-aos-delay="400"
+                data-aos-duration="1200"><?php echo esc_html($title); ?></h2>
 
-                </div>
+            <?php endif; ?>
 
-                <div class="home-2-btn inline-flex mt-base"><a class="button-primary" href="<?php echo !empty($introduction_link['url']) ? $introduction_link['url'] : '#'; ?>"> <span><?php echo !empty($introduction_link['title']) ? $introduction_link['title'] : ''; ?></span></a>
+            <?php if ($description) : ?>
 
-                </div>
+            <div class="format-content body-1 font-normal text-black" data-aos="fade-up" data-aos-delay="600"
+                data-aos-duration="1200">
+
+                <?php echo $description; ?>
 
             </div>
 
-            <div class="col-right xl:w-[calc(100%-43.75rem-11.666666666666668rem)] md:w-5/12">
+            <?php endif; ?>
 
-                <div class="image"> <a class="img-ratio ratio:pt-[350_336] lozad" href="#"><img class="lozad undefined" data-src="<?php echo !empty($introduction_celebratingimage['url']) ? $introduction_celebratingimage['url'] : ''; ?>" alt="<?php echo !empty($introduction_celebratingimage['alt']) ? $introduction_celebratingimage['alt'] : ''; ?>" /></a></div>
+            <?php if ($button) : ?>
 
-            </div>
+            <div class="button-more mt-base" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1200"><a
+                    class="btn btn-primary" href="<?php echo esc_url($button['url']); ?>"
+                    target="<?php echo esc_attr($button['target']); ?>">
+                    <span><?php echo esc_html($button['title']); ?></span></a></div>
+
+            <?php endif; ?>
 
         </div>
+
+        <?php if ($statistics) : ?>
+
+        <div class="wrap-list grid lg:grid-cols-4 grid-cols-2 gap-base xl:mt-20 mt-base" data-aos="fade-up"
+            data-aos-delay="1000" data-aos-duration="1200">
+
+            <?php foreach ($statistics as $item) : ?>
+
+            <div class="item">
+
+                <div class="content">
+
+                    <div class="number countup" data-number="<?php echo esc_attr($item['number']); ?>"> <span
+                            class="count-value"></span><span
+                            class="suffix"><?php echo esc_html($item['suffix']); ?></span></div>
+
+                    <div class="title body-1 font-normal text-black">
+
+                        <p><?php echo esc_html($item['title']); ?></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <?php endforeach; ?>
+
+        </div>
+
+        <?php endif; ?>
 
     </div>
 
