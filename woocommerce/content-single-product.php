@@ -63,7 +63,7 @@ $link_contact = get_field('link_contactproduct', 'option');
 				</div>
 			</div>
 			<div class="col-right lg:w-[calc(100%-35.41666666666667rem-4.16667rem)] w-full flex flex-col">
-				<h1 class="product-title title-40 !font-normal mb-6"><?php echo $product->get_name() ?></h1>
+				<h1 class="product-title heading-1 mb-6"><?php echo $product->get_name() ?></h1>
 				<div class="format-content">
 					<?php echo $product->get_description() ?>
 					<table>
@@ -117,10 +117,12 @@ $link_contact = get_field('link_contactproduct', 'option');
 
 			<div class="tabslet-content active" id="tab1">
 				<div class="general-info">
-					<div class="format-content">
-						<?php echo !empty($general_information) ? $general_information : __('Không có thông tin', 'canhcamtheme') ?>
-						<div class="button-read-more flex items-center justify-center mt-base"><a href="#"> <span><?php echo __('Xem thêm','canhcamtheme');?></span><i class="fa-light fa-angle-down"></i></a></div>
+					<div class="expand-content overflow-hidden">
+						<div class="format-content">
+							<?php echo !empty($general_information) ? $general_information : __('Không có thông tin', 'canhcamtheme') ?>
+						</div>
 					</div>
+					<div class="button-read-more flex items-center justify-center mt-base"><button> <span><?php echo __('Xem thêm','canhcamtheme');?></span><i class="fa-light fa-angle-down"></i></button></div>
 				</div>
 			</div>
 			<div class="tabslet-content" id="tab2">

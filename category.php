@@ -30,7 +30,12 @@ $custom_query = new WP_Query($args);
                     <div class="image"> <a class="img-ratio ratio:pt-[613_920] lozad" href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt=""></a></div>
                 </div>
                 <div class="col-right flex-1 bg-Utility-50 px-10 py-15 flex flex-col justify-center">
-                    <div class="date bg-Primary-1 inline-flex text-Neutral-White w-16 h-16 flex-shrink-0 flex-col items-center gap-1 text-center justify-center"><?php echo date('d/m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
+                    <div class="date bg-Primary-1 inline-flex text-Neutral-White w-16 h-16 flex-shrink-0 flex-col items-center gap-1 text-center justify-center">
+                        <div class="day heading-5 font-bold">
+                            <?php echo date('d', strtotime(get_the_date('Y-m-d'))); ?>
+                        </div>
+                        <div class="month body-5 font-bold"><?php echo date('m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
+                    </div>
                     <div class="content flex flex-col gap-3 text-Utility-Black">
                         <a href="<?php the_permalink(); ?>"><h3 class="heading-4 font-bold"><?php the_title(); ?></h3></a>
                         <div class="desc"><?php echo wp_trim_words(get_the_excerpt(), 50, '...'); ?></div>
@@ -58,8 +63,10 @@ $custom_query = new WP_Query($args);
                     <div class="content pt-6 flex gap-4">
                         <div
                             class="date text-sm bg-Primary-1 inline-flex text-Neutral-White w-16 h-16 flex-shrink-0 flex-col items-center gap-1 text-center justify-center">
-                            <div class="day text-2xl font-bold text-Neutral-White"><?php echo date('d', strtotime(get_the_date('Y-m-d'))); ?></div>
-                            <div class="month text-sm text-white font-bold"><?php echo date('m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
+                            <div class="day heading-5 font-bold">
+                                <?php echo date('d', strtotime(get_the_date('Y-m-d'))); ?>
+                            </div>
+                            <div class="month body-5 font-bold"><?php echo date('m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
                         </div>
                         <div class="content-news flex-1">
                             <h3 class="text-lg font-semibold text-Neutral-950 tracking-[-0.36px] group-hover:text-Primary-1">

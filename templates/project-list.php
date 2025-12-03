@@ -3,6 +3,7 @@
  Template Name: Page - Project List
  */
 get_header();
+
 $banner_image = get_field('banner_image');
 $banner_title = get_field('banner_title');
 $banner_desc = get_field('banner_description');

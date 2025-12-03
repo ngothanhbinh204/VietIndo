@@ -1,10 +1,13 @@
 <?php
 $id_category = get_queried_object()->term_id;
-$taxonomy = get_queried_object()->taxonomy;
+$term = get_queried_object();
+$taxonomy = !empty(get_queried_object()->taxonomy) ? get_queried_object()->taxonomy : '';
 if ($id_category) {
 	$id = $taxonomy . '_' . $id_category;
+	$title = !empty($term) ? $term->name : '';
 } else {
 	$id = get_the_ID();
+	$title = get_the_title($id);
 }
 $banner = get_field('banner_select_page', $id);
 ?>

@@ -25,10 +25,17 @@ $hd_phone = get_field('hd_phone', 'option');
         <div class="container-fluid">
             <div class="header-wrapper">
                 <div class="header-logo">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img class="lozad undefined" data-src="<?php echo get_template_directory_uri(); ?>/img/logo.svg"
-                            alt="<?php bloginfo('name'); ?>" />
+                    <?php 
+                    if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+                        the_custom_logo();
+                    } else {
+                        ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php bloginfo( 'name' ); ?>
                     </a>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="header-right">
                     <div class="header-menu">
@@ -41,36 +48,16 @@ $hd_phone = get_field('hd_phone', 'option');
 						?>
                     </div>
                     <div class="header-right-inner">
-                        <div class="header-search"><img src="./img/icon-search.svg" alt="" /></div>
-                        <div class="header-language">
-                            <div class="header-language-active">
-                                <ul>
-                                    <li class="wpml-ls-current-language">
-                                        <a href="">
-                                            <div class="flag"><img src="./img/flag-VN.png" alt="" /></div>
-                                            <span class="wpml-ls-native">VN</span>
-                                        </a>
-                                    </li>
-                                    <ul>
-                                        <li>
-                                            <a href=""> <span>EN</span></a>
-                                        </li>
-                                    </ul>
-                                </ul>
-                            </div>
-                            <div class="header-language-list">
-                                <ul>
-                                    <li class="wpml-ls-current-language">
-                                        <a href=""> <span class="wpml-ls-native">VN</span></a>
-                                    </li>
-                                    <ul>
-                                        <li>
-                                            <a href=""> <span>EN</span></a>
-                                        </li>
-                                    </ul>
-                                </ul>
-                            </div>
+                        <div class="header-search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.7951 13.7951L19.1667 19.1667M16.5 8.5C16.5 12.9183 12.9183 16.5 8.5 16.5C4.08172 16.5 0.5 12.9183 0.5 8.5C0.5 4.08172 4.08172 0.5 8.5 0.5C12.9183 0.5 16.5 4.08172 16.5 8.5Z"
+                                    stroke="#292929" />
+                            </svg>
+
                         </div>
+                        <?php echo do_shortcode('[custom_wpml_switcher]'); ?>
                         <div class="header-bar"><i class="fa-solid fa-bars"></i></div>
                     </div>
                 </div>
@@ -84,10 +71,24 @@ $hd_phone = get_field('hd_phone', 'option');
         </div>
         <div class="container">
             <div class="wrap-form-search-product">
-                <div class="productsearchbox">
+                <!-- <div class="productsearchbox">
                     <input type="text" placeholder="Tìm kiếm thông tin" />
                     <button><i class="fa-light fa-magnifying-glass"></i></button>
+
+                </div> -->
+                <div class="productsearchbox">
+
+                    <form class="form-search search-custom" role="search" method="get"
+                        action="<?php echo home_url('/'); ?>">
+                        <input type="search" name="s" class="searchinput"
+                            placeholder="<?php esc_attr_e('Tìm kiếm...', 'canhcamtheme') ?>" autocomplete="off" />
+
+                        <button type="submit" class="searchbutton">
+                            <i class="fa-light fa-magnifying-glass"></i>
+                        </button>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

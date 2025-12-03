@@ -29,7 +29,7 @@ $gallery = get_sub_field('gallery');
 							<?php foreach ($gallery as $item) : ?>
 								<div class="swiper-slide">
 									<div class="img relative">
-										<a class="img-ratio ratio:pt-[586_440] rounded-4" href="<?php echo esc_url($item['link']['url'] ?? '#'); ?>">
+										<a class="img-ratio ratio:pt-[610_430] rounded-4" href="<?php echo esc_url($item['link']['url'] ?? '#'); ?>">
 											<?php echo get_image_attrachment($item['image']); ?>
 										</a>
 										<div class="content wrap-item-height text-center">

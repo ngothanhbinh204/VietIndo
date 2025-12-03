@@ -39,10 +39,10 @@ if (isset($args["productID"])) {
 
 				<div class="product-info flex items-center gap-2">
 					<div class="left flex-shrink-0">
-						<div class="title text-Neutral-500-main font-normal"><?php echo wc_attribute_label($attribute->get_name()); ?>:</div>
+						<div class="title text-Utility-700 font-normal"><?php echo wc_attribute_label($attribute->get_name()); ?>:</div>
 					</div>
 					<div class="right">
-						<div class="text text-Neutral-700 font-normal tracking-[-0.32px]">
+						<div class="text text-black font-normal tracking-[-0.32px]">
 							<?php
 							$values = [];
 

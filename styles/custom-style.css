@@ -77,3 +77,22 @@ ul.project-nav li a.active {
     background-color: rgb(19 68 148 / var(--tw-bg-opacity));
     color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.header-search-form .wrap-form-search-product .productsearchbox form {
+  width: 100%;
+  display: flex;
+}
+.header-search-form .wrap-form-search-product .productsearchbox form input[type="submit"] {
+   --tw-bg-opacity: 1 !important;
+    flex: 1 1 0% !important;
+    outline-width: 0 !important;
+    border-width: 0 !important;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+    padding-right: 1.5625rem !important;
+    padding-left: 1.5625rem !important;
+    height: 2.60417rem !important;
+    font-size: clamp(14px, .83333rem, .83333rem) !important;
+}
+.header .header-wrapper .header-language.no-dropdown .header-language-active::after {
+    content: none !important;
+    display: none; 
+}

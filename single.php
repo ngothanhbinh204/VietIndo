@@ -45,7 +45,12 @@
                                 <div class="item group">
                                     <div class="image"> <a class="img-ratio ratio:pt-[280_320] zoom-img rounded-5" href="<?php echo get_the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt=""></a></div>
                                     <div class="content pt-6 flex flex-col gap-4">
-                                        <div class="date bg-Primary-1 inline-flex text-Neutral-White w-16 h-16 flex-shrink-0 flex-col items-center gap-1 text-center justify-center rounded-1"><?php echo date('d/m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
+                                        <div class="date bg-Primary-1 inline-flex text-Neutral-White w-16 h-16 flex-shrink-0 flex-col items-center gap-1 text-center justify-center">
+                                        <div class="day heading-5 font-bold">
+                                            <?php echo date('d', strtotime(get_the_date('Y-m-d'))); ?>
+                                        </div>
+                                        <div class="month body-5 font-bold"><?php echo date('m/Y', strtotime(get_the_date('Y-m-d'))); ?></div>
+                                        </div>
                                         <h3 class="heading-5 font-semibold text-Utility-Black group-hover:text-Primary-1 mb-3 line-clamp-2"><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                         <div class="desc text-Neutral-700 tracking-[-0.32px] font-normal"><?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?></div>
                                     </div>

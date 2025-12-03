@@ -52,7 +52,7 @@ $rewards = get_field('rewards');
     <section class="about-4 bg-Primary-1 relative overflow-hidden">
         <div class="about-4-main flex flex-col-reverse md:flex-row gap-12 items-center lg:rem:pr-[260px] pr-4">
             <div class="col-left md:w-[calc(100%-31.25rem-2.5rem)] relative left-0  w-full">
-                <div class="image"> <a class="ratio-contain ratio:pt-[840_1193px]" href="#"><img src="<?php echo !empty($vision_mission['mission_image']['url']) ? $vision_mission['mission_image']['url'] : ''; ?>" alt=""></a></div>
+                <div class="image"> <a class="ratio-contain ratio:pt-[840_1193]" href="#"><img src="<?php echo !empty($vision_mission['mission_image']['url']) ? $vision_mission['mission_image']['url'] : ''; ?>" alt=""></a></div>
             </div>
             <div class="col-right md:rem:w-[600px]  w-full">
                 <div class="wrapper flex justify-end">
@@ -85,7 +85,7 @@ $rewards = get_field('rewards');
                                 <div class="item">
                                     <div class="top">
                                         <h3 class="text-xl font-bold mb-3"><?php echo !empty($item['valuename']) ? $item['valuename'] : ''; ?></h3>
-                                        <div class="desc text-Utility-700 font-normal"><?php echo !empty($item['valuecontent']) ? $item['valuecontent'] : ''; ?></div>
+                                        <div class="desc body-1 text-black font-normal"><?php echo !empty($item['valuecontent']) ? $item['valuecontent'] : ''; ?></div>
                                     </div>
                                     <div class="bottom">
                                         <div class="icon"> <a href="#"><?php echo !empty($item['valueicon']) ? $item['valueicon'] : ''; ?></a></div>
@@ -118,7 +118,7 @@ $rewards = get_field('rewards');
                                     <div class="swiper-slide">
                                         <div class="item-history flex flex-col gap-6">
                                             <div class="img">
-                                                <div class="rem:h-[213px]  overflow-hidden img-full"><img class="lozad undefined" data-src="<?php echo !empty($item['imageyear']['url']) ? $item['imageyear']['url'] : ''; ?>" alt="" />
+                                                <div class="rem:h-[213px]  overflow-hidden img-full rounded-5"><img class="lozad undefined" data-src="<?php echo !empty($item['imageyear']['url']) ? $item['imageyear']['url'] : ''; ?>" alt="" />
                                                 </div>
                                             </div>
                                             <div class="wrap flex flex-col gap-3">
@@ -130,7 +130,7 @@ $rewards = get_field('rewards');
                                             </div>
                                             <div class="content h-full md:rem:h-[213px]">
                                                 <div class="wrap-content  text-center">
-                                                    <div class="format-content text-Neutral-700 font-normal"><?php echo !empty($item['contentyear']) ? $item['contentyear'] : ''; ?></div>
+                                                    <div class="format-content body-1 text-black font-normal"><?php echo !empty($item['contentyear']) ? $item['contentyear'] : ''; ?></div>
                                                     <div class="number mt-6 text-2xl font-bold text-Neutral-950"><?php echo !empty($item['year']) ? $item['year'] : ''; ?></div>
                                                 </div>
                                             </div>
